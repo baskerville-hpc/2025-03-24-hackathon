@@ -37,18 +37,6 @@ HyperThreading:
 
 :::
 
-## Baskerville Resources {.smaller}{visibility="hidden"}
-
-Baskerville has a number of resources availible to you:
-
-::: {.incremental}
-- <https://www.baskerville.ac.uk/> - The homepage for Baskerville, has case studies and papers published by Baskerville users
-- <https://admin.baskerville.ac.uk/> - The admin site is a place to manage your Baskerville account and view user and project information
-- <https://apps.baskerville.ac.uk/> - The apps website contains a list of all the installed applications on Baskerville
-- <https://portal.baskerville.ac.uk/> - The portal site allowds users to use interactive apps in a web browser
-:::
-
-
 ## Baskerville Resources {.smaller}
 
 Baskerville has a number of resources availible to you:
@@ -279,5 +267,13 @@ The number (in this case `992337`) is your job id this is a unique job number
 
 :::
 
+## Baskerville Sofware {.smaller}
+
+- You can view all the software we have installed on Baskerville thorugh our apps website <https://apps.baskerville.ac.uk/>
+   - This contains a module description
+   - How to load these modules
+   - Links to the module homepage
+- You can find specific modeules using `module spider`
+- You can find modules that contain your application using `module avail`
 
 # Thank You

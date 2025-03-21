@@ -78,7 +78,7 @@ Baskerville has a number of resources availible to you:
 
 ## Baskerville Login Example
 
-Insert video here
+{{< video images/login.mp4 width="1200" height="600" >}}
 
 ## Baskerville Storage {.smaller}
 
@@ -111,7 +111,8 @@ Insert video here
 
 ## Baskerville User Details Example
 
-Insert video here
+
+{{< video images/user.mp4 width="1200" height="600" >}}
 
 # Baskerville jobs
 

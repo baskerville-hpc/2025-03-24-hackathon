@@ -30,7 +30,7 @@ format:
 - 5.4 PB storage
 
 ::: {.callout-note appearance="simple"}
-HyperThreading:
+Note:
 
     Baskerville has hyperthereading enabled this means that 1 core = 2 threads/tasks
 

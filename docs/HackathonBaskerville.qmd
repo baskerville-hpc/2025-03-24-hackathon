@@ -5,10 +5,9 @@ format:
   revealjs:
     theme: bask2.scss
     footer: Baskerville Hackathon 24/03/2025
+    code-line-numbers: false
     logo: images/BaskervilleW.svg
 ---
-
-# Introduction (*And Welcome*) to Baskerville{.smaller}
 
 # Baskerville Hackathon
 
@@ -30,7 +29,7 @@ format:
 - Icelake CPUs with 72 cores per node
 - 5.4 PB storage
 
-::: {.callout-note appearance="simpe"}
+::: {.callout-note appearance="simple"}
 HyperThreading:
 
     Baskerville has hyperthereading enabled this means that 1 core = 2 threads/tasks
@@ -132,7 +131,7 @@ Baskerville has a number of resources availible to you:
 
 ## Job script {.smaller}
 
-- The most common way to run jobs is with the `sbatch` command and the name of you job script
+- The most common way to run jobs is with the `sbatch` command and the name of you job script <https://docs.baskerville.ac.uk/jobs/>
 - Your job script will contain:
 
 ::: {.incremental}
@@ -157,6 +156,8 @@ Baskerville has a number of resources availible to you:
 module purge
 module load baskerville
 
+source activate_env
+
 # your commands
 ```
 
@@ -174,6 +175,8 @@ module load baskerville
 module purge
 module load baskerville
 
+source activate_env
+
 # your commands
 ```
 
@@ -183,13 +186,15 @@ module load baskerville
 #!/bin/bash
 #SBATCH --qos=bham                      <--- Using bham job queue
 #SBATCH --account=ranaaaa-hackathon     <--- Hackathon project account
-#SBATCH --time=0:20:0                   <--- Job to run for 20 minutes
+#SBATCH --time=1:0:0                    <--- Job to run for 1 hour
 #SBATCH --ntasks=4                      <--- Job requests 4 tasks
 #SBATCH --gres=gpu:1                    <--- Requesting 1 GPU
 #SBATCH --reservation=ranaaaa-hackathon <--- Use reserved resources
 
 module purge
 module load baskerville
+
+source activate_env
 
 # your commands
 ```
@@ -207,7 +212,9 @@ module load baskerville
 
 module purge            <--- Purging environemnt
 module load baskerville <--- Loading default Baskerville modules
-                        <--- Add additional module here
+
+source activate_env     <--- Activate conda environment
+
 # your commands         <--- Commands you want to run
 ```
 
@@ -239,7 +246,14 @@ The number (in this case `992337`) is your job id this is a unique job number
 
 - A file `slurm-XXXXX.out` is created where XXXXX is the job id
 - This file would be the standard output of whatever you would run
-- 
+- Below example is from running output from checking if PyTorch can see the GPUs using the command `python -c "import torch; print(torch.backends.cuda.is_built())"`
+
+```bash
+Miniforge3/24.1.2-0   
+True
+```
+- This shows that PyTorch has access to the GPUs
+
 
 ## Stats file .stats
 
@@ -250,16 +264,17 @@ The number (in this case `992337`) is your job id this is a unique job number
 ```bash
 +--------------------------------------------------------------------------+
 | Job on the Baskerville cluster:
-| Starting at Tue Sep 28 15:00:30 2021 for auser(123456)
-| Identity jobid 12345 jobname cudaopenmp.sh
+| Starting at Fri Mar 21 15:00:30 2025 for user(123456)
+| Identity jobid 12345 jobname job.sh
 | Running against project ace-project and in partition baskerville-shared
-| Requested cpu=288,mem=864G,node=2,billing=288,gres/gpu=8 - 00:10:00 walltime
-| Assigned to nodes bask-pg0308u30a,bask-pg0308u31a
-| Command /bask/projects/a/ace-project/cudaopenmp.sh
-| WorkDir /bask/projects/a/ace-project
+| Requested cpu=4,mem=12G,node=1,billing=4,gres/gpu=1 - 00:10:00 walltime 
+| Allocated cpu=4,mem=12G,node=1,billing=4,gres/gpu=1
+| Assigned to nodes bask-pg0308u37a
+| Command /bask/projects/r/ranaaaa-hackathon/job.sh  
+| WorkDir /bask/projects/r/ranaaaa-hackathon    
 +--------------------------------------------------------------------------+
 +--------------------------------------------------------------------------+
-| Finished at Tue Sep 28 15:00:35 2021 for auser(123456) on the Baskerville Cluster
+| Finished at Fri Mar 21 15:00:35 2025 for user(123456) on the Baskerville Cluster
 | Required (00:01.942 cputime, 3580K memory used) - 00:00:05 walltime
 | JobState COMPLETING - Reason None
 | Exitcode 0:0
@@ -268,13 +283,44 @@ The number (in this case `992337`) is your job id this is a unique job number
 
 :::
 
-## Baskerville Sofware {.smaller}
+## Baskerville Conda Environment {.smaller}
 
-- You can view all the software we have installed on Baskerville thorugh our apps website <https://apps.baskerville.ac.uk/>
-   - This contains a module description
-   - How to load these modules
-   - Links to the module homepage
-- You can find specific modeules using `module spider`
-- You can find modules that contain your application using `module avail`
+- In the project location `/bask/projects/r/ranaaaa-hackathon` there are the following:
+   - Conda environment `conda_env` - this contains all the software you will need for this hackathon
+   - `create_conda_env.sh` - This file has 2 purposes, create `conda_env` point all users to the already existing conda environment
+   - `job.sh` An example job script that can be copied and editted by all
+   - `activate_env` - loads modues and activates conda environment
+   - `interactive.sh` - starts an interactive job placing users directly onto a compute node
+
+## Baskerville interactive jobs {.smaller}
+
+- An interactive job follows the same general format as a batch job script - <https://docs.baskerville.ac.uk/interactive-jobs/>
+- It contains `srun` instead of `sbatch` and does not need `#SBATCH` in front of each option
+- You will be on a compute node first thing to do is `source activate_env` to have acccess to all the software required for this hackathon
+
+```bash
+srun --export=USER,HOME,PATH,TERM,DISPLAY --account=ranaaaa-hackathon --qos=bham --nodes=1 --ntasks=4 --time=0-01:0:0 --reservation=ranaaaa-hackathon --pty /bin/bash
+```
+
+## Baskerville Portal {.smaller}
+
+- Baskerville Portal provides web-based access to a range of Baskerville services and some GUI applications <https://docs.baskerville.ac.uk/portal/portal/>,
+ such as JupyterLab:
+   - JupyterLab will submit jobs on the reservation for `ranaaaa-hackathon`
+   - You can access the conda environment in Jupter <https://docs.baskerville.ac.uk/portal/jupyter-conda/> by ticking "Show Conda Environments"
+   - Make sure you have run `create_conda_env.sh` which adds the environment to your `~/.conda/environments.txt`
+
+::: {.callout-warning appearance="simple"}
+Warning:
+
+    Each JupyterLab session will use a quarter of a node (1 GPU and 36 threads) so be considerate of others
+
+:::
+
+## Baskerville Tips
+
+- All information about Baskerville and running jobs can be found on our docs website <https://docs.baskerville.ac.uk/>
+- We have a cheatsheet of general Baskerville commands - <https://docs.baskerville.ac.uk/cheatsheet/>
+- We have some training material <https://docs.baskerville.ac.uk/baskerville-basics/overview/>
 
 # Thank You

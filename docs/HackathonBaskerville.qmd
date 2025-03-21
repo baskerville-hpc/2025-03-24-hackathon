@@ -157,6 +157,8 @@ Baskerville has a number of resources availible to you:
 module purge
 module load baskerville
 
+source activate_env
+
 # your commands
 ```
 
@@ -173,6 +175,8 @@ module load baskerville
 
 module purge
 module load baskerville
+
+source activate_env
 
 # your commands
 ```
@@ -191,6 +195,8 @@ module load baskerville
 module purge
 module load baskerville
 
+source activate_env
+
 # your commands
 ```
 
@@ -207,7 +213,9 @@ module load baskerville
 
 module purge            <--- Purging environemnt
 module load baskerville <--- Loading default Baskerville modules
-                        <--- Add additional module here
+
+source activate_env     <--- Activate conda environment
+
 # your commands         <--- Commands you want to run
 ```
 
@@ -239,7 +247,12 @@ The number (in this case `992337`) is your job id this is a unique job number
 
 - A file `slurm-XXXXX.out` is created where XXXXX is the job id
 - This file would be the standard output of whatever you would run
-- 
+- Below example is from running the command `python -c "import torch; print(torch.backends.cuda.is_built())"`
+
+```bash
+Miniforge3/24.1.2-0   
+True
+```
 
 ## Stats file .stats
 
@@ -250,16 +263,17 @@ The number (in this case `992337`) is your job id this is a unique job number
 ```bash
 +--------------------------------------------------------------------------+
 | Job on the Baskerville cluster:
-| Starting at Tue Sep 28 15:00:30 2021 for auser(123456)
-| Identity jobid 12345 jobname cudaopenmp.sh
+| Starting at Fri Mar 21 15:00:30 2025 for user(123456)
+| Identity jobid 12345 jobname job.sh
 | Running against project ace-project and in partition baskerville-shared
-| Requested cpu=288,mem=864G,node=2,billing=288,gres/gpu=8 - 00:10:00 walltime
-| Assigned to nodes bask-pg0308u30a,bask-pg0308u31a
-| Command /bask/projects/a/ace-project/cudaopenmp.sh
-| WorkDir /bask/projects/a/ace-project
+| Requested cpu=4,mem=12G,node=1,billing=4,gres/gpu=1 - 00:10:00 walltime 
+| Allocated cpu=4,mem=12G,node=1,billing=4,gres/gpu=1
+| Assigned to nodes bask-pg0308u37a
+| Command /bask/projects/r/ranaaaa-hackathon/job.sh  
+| WorkDir /bask/projects/r/ranaaaa-hackathon    
 +--------------------------------------------------------------------------+
 +--------------------------------------------------------------------------+
-| Finished at Tue Sep 28 15:00:35 2021 for auser(123456) on the Baskerville Cluster
+| Finished at Fri Mar 21 15:00:35 2025 for user(123456) on the Baskerville Cluster
 | Required (00:01.942 cputime, 3580K memory used) - 00:00:05 walltime
 | JobState COMPLETING - Reason None
 | Exitcode 0:0

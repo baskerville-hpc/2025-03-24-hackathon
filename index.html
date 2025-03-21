@@ -205,11 +205,6 @@ Advanced Research Computing (ARC) Team
 </div>
 
 </section>
-<section id="introduction-and-welcome-to-baskerville" class="title-slide slide level1 smaller center">
-<h1>Introduction (<em>And Welcome</em>) to Baskerville</h1>
-
-</section>
-
 <section>
 <section id="baskerville-hackathon" class="title-slide slide level1 center">
 <h1>Baskerville Hackathon</h1>
@@ -238,13 +233,10 @@ Advanced Research Computing (ARC) Team
 <li>Icelake CPUs with 72 cores per node</li>
 <li>5.4 PB storage</li>
 </ul>
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-note callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
 <p>HyperThreading:</p>
@@ -374,7 +366,7 @@ Advanced Research Computing (ARC) Team
 <section id="job-script" class="slide level2 smaller">
 <h2>Job script</h2>
 <ul>
-<li>The most common way to run jobs is with the <code>sbatch</code> command and the name of you job script</li>
+<li>The most common way to run jobs is with the <code>sbatch</code> command and the name of you job script <a href="https://docs.baskerville.ac.uk/jobs/" class="uri">https://docs.baskerville.ac.uk/jobs/</a></li>
 <li>Your job script will contain:</li>
 </ul>
 <div>
@@ -389,63 +381,71 @@ Advanced Research Computing (ARC) Team
 </section>
 <section id="job-script-example" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Job script example</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb2-1" class="hljs-ln-code"><a href=""></a><span class="co">#!/bin/bash</span></span>
-<span id="cb2-2" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --qos=bham</span></span>
-<span id="cb2-3" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --account=ranaaaa-hackathon</span></span>
-<span id="cb2-4" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --time=1:0:0</span></span>
-<span id="cb2-5" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --ntasks=4</span></span>
-<span id="cb2-6" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --gres=gpu:1</span></span>
-<span id="cb2-7" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon</span></span>
-<span id="cb2-8" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb2-9" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> purge</span>
-<span id="cb2-10" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> load baskerville</span>
-<span id="cb2-11" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb2-12" class="hljs-ln-code"><a href=""></a><span class="co"># your commands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb2-1" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-2" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --qos=bham</span></span>
+<span id="cb2-3" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=ranaaaa-hackathon</span></span>
+<span id="cb2-4" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=1:0:0</span></span>
+<span id="cb2-5" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=4</span></span>
+<span id="cb2-6" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres=gpu:1</span></span>
+<span id="cb2-7" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon</span></span>
+<span id="cb2-8" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span>
+<span id="cb2-10" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load baskerville</span>
+<span id="cb2-11" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate_env</span>
+<span id="cb2-13" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># your commands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="job-script-example-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Job script example</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb3-1" class="hljs-ln-code"><a href=""></a><span class="co">#!/bin/bash &lt;--- run the job using GNU Bourne Again Shell</span></span>
-<span id="cb3-2" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --qos=bham</span></span>
-<span id="cb3-3" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --account=ranaaaa-hackathon</span></span>
-<span id="cb3-4" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --time=1:0:0</span></span>
-<span id="cb3-5" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --ntasks=4</span></span>
-<span id="cb3-6" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --gres=gpu:1</span></span>
-<span id="cb3-7" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon</span></span>
-<span id="cb3-8" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb3-9" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> purge</span>
-<span id="cb3-10" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> load baskerville</span>
-<span id="cb3-11" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb3-12" class="hljs-ln-code"><a href=""></a><span class="co"># your commands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb3-1" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash &lt;--- run the job using GNU Bourne Again Shell</span></span>
+<span id="cb3-2" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --qos=bham</span></span>
+<span id="cb3-3" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=ranaaaa-hackathon</span></span>
+<span id="cb3-4" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=1:0:0</span></span>
+<span id="cb3-5" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=4</span></span>
+<span id="cb3-6" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres=gpu:1</span></span>
+<span id="cb3-7" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon</span></span>
+<span id="cb3-8" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span>
+<span id="cb3-10" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load baskerville</span>
+<span id="cb3-11" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate_env</span>
+<span id="cb3-13" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># your commands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="job-script-example-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Job script example</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb4-1" class="hljs-ln-code"><a href=""></a><span class="co">#!/bin/bash</span></span>
-<span id="cb4-2" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --qos=bham                      &lt;--- Using bham job queue</span></span>
-<span id="cb4-3" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --account=ranaaaa-hackathon     &lt;--- Hackathon project account</span></span>
-<span id="cb4-4" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --time=0:20:0                   &lt;--- Job to run for 20 minutes</span></span>
-<span id="cb4-5" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --ntasks=4                      &lt;--- Job requests 4 tasks</span></span>
-<span id="cb4-6" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --gres=gpu:1                    &lt;--- Requesting 1 GPU</span></span>
-<span id="cb4-7" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon &lt;--- Use reserved resources</span></span>
-<span id="cb4-8" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb4-9" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> purge</span>
-<span id="cb4-10" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> load baskerville</span>
-<span id="cb4-11" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb4-12" class="hljs-ln-code"><a href=""></a><span class="co"># your commands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb4-1" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb4-2" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --qos=bham                      &lt;--- Using bham job queue</span></span>
+<span id="cb4-3" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=ranaaaa-hackathon     &lt;--- Hackathon project account</span></span>
+<span id="cb4-4" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=1:0:0                    &lt;--- Job to run for 1 hour</span></span>
+<span id="cb4-5" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=4                      &lt;--- Job requests 4 tasks</span></span>
+<span id="cb4-6" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres=gpu:1                    &lt;--- Requesting 1 GPU</span></span>
+<span id="cb4-7" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon &lt;--- Use reserved resources</span></span>
+<span id="cb4-8" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span>
+<span id="cb4-10" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load baskerville</span>
+<span id="cb4-11" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate_env</span>
+<span id="cb4-13" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># your commands</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="job-script-example-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Job script example</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb5-1" class="hljs-ln-code"><a href=""></a><span class="co">#!/bin/bash</span></span>
-<span id="cb5-2" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --qos=bham</span></span>
-<span id="cb5-3" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --account=ranaaaa-hackathon</span></span>
-<span id="cb5-4" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --time=1:0:0</span></span>
-<span id="cb5-5" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --ntasks=4</span></span>
-<span id="cb5-6" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --gres=gpu:1</span></span>
-<span id="cb5-7" class="hljs-ln-code"><a href=""></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon</span></span>
-<span id="cb5-8" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb5-9" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> purge            <span class="op">&lt;</span>--- Purging environemnt</span>
-<span id="cb5-10" class="hljs-ln-code"><a href=""></a><span class="ex">module</span> load baskerville <span class="op">&lt;</span>--- Loading default Baskerville modules</span>
-<span id="cb5-11" class="hljs-ln-code"><a href=""></a>                        <span class="op">&lt;</span>--- <span class="ex">Add</span> additional module here</span>
-<span id="cb5-12" class="hljs-ln-code"><a href=""></a><span class="co"># your commands         &lt;--- Commands you want to run</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb5-1" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb5-2" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --qos=bham</span></span>
+<span id="cb5-3" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=ranaaaa-hackathon</span></span>
+<span id="cb5-4" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=1:0:0</span></span>
+<span id="cb5-5" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=4</span></span>
+<span id="cb5-6" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres=gpu:1</span></span>
+<span id="cb5-7" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --reservation=ranaaaa-hackathon</span></span>
+<span id="cb5-8" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge            <span class="op">&lt;</span>--- Purging environemnt</span>
+<span id="cb5-10" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load baskerville <span class="op">&lt;</span>--- Loading default Baskerville modules</span>
+<span id="cb5-11" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate_env     <span class="op">&lt;</span>--- Activate conda environment</span>
+<span id="cb5-13" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14" class="hljs-ln-code"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># your commands         &lt;--- Commands you want to run</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="submitting-a-job" class="slide level2 smaller">
 <h2>Submitting a job</h2>
@@ -476,7 +476,12 @@ Submitted batch job 992337</code></pre>
 <ul>
 <li>A file <code>slurm-XXXXX.out</code> is created where XXXXX is the job id</li>
 <li>This file would be the standard output of whatever you would run</li>
-<li></li>
+<li>Below example is from running output from checking if PyTorch can see the GPUs using the command <code>python -c "import torch; print(torch.backends.cuda.is_built())"</code></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Miniforge3/24.1.2-0</span>   </span>
+<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>This shows that PyTorch has access to the GPUs</li>
 </ul>
 </div>
 <div id="tabset-1-2">
@@ -485,37 +490,77 @@ Submitted batch job 992337</code></pre>
 <li>Contains information on resources used (time, memory amount of CPUS and GPUs</li>
 <li>Will also contain the exit code so you can see if job ended correctly)</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href=""></a><span class="ex">+--------------------------------------------------------------------------+</span></span>
-<span id="cb7-2"><a href=""></a><span class="kw">|</span> <span class="ex">Job</span> on the Baskerville cluster:</span>
-<span id="cb7-3"><a href=""></a><span class="kw">|</span> <span class="ex">Starting</span> at Tue Sep 28 15:00:30 2021 for auser<span class="er">(</span><span class="ex">123456</span><span class="kw">)</span></span>
-<span id="cb7-4"><a href=""></a><span class="kw">|</span> <span class="ex">Identity</span> jobid 12345 jobname cudaopenmp.sh</span>
-<span id="cb7-5"><a href=""></a><span class="kw">|</span> <span class="ex">Running</span> against project ace-project and in partition baskerville-shared</span>
-<span id="cb7-6"><a href=""></a><span class="kw">|</span> <span class="ex">Requested</span> cpu=288,mem=864G,node=2,billing=288,gres/gpu=8 <span class="at">-</span> 00:10:00 walltime</span>
-<span id="cb7-7"><a href=""></a><span class="kw">|</span> <span class="ex">Assigned</span> to nodes bask-pg0308u30a,bask-pg0308u31a</span>
-<span id="cb7-8"><a href=""></a><span class="kw">|</span> <span class="ex">Command</span> /bask/projects/a/ace-project/cudaopenmp.sh</span>
-<span id="cb7-9"><a href=""></a><span class="kw">|</span> <span class="ex">WorkDir</span> /bask/projects/a/ace-project</span>
-<span id="cb7-10"><a href=""></a><span class="ex">+--------------------------------------------------------------------------+</span></span>
-<span id="cb7-11"><a href=""></a><span class="ex">+--------------------------------------------------------------------------+</span></span>
-<span id="cb7-12"><a href=""></a><span class="kw">|</span> <span class="ex">Finished</span> at Tue Sep 28 15:00:35 2021 for auser<span class="er">(</span><span class="ex">123456</span><span class="kw">)</span> <span class="ex">on</span> the Baskerville Cluster</span>
-<span id="cb7-13"><a href=""></a><span class="kw">|</span> <span class="ex">Required</span> <span class="er">(</span><span class="ex">00:01.942</span> cputime, 3580K memory used<span class="kw">)</span> <span class="ex">-</span> 00:00:05 walltime</span>
-<span id="cb7-14"><a href=""></a><span class="kw">|</span> <span class="ex">JobState</span> COMPLETING <span class="at">-</span> Reason None</span>
-<span id="cb7-15"><a href=""></a><span class="kw">|</span> <span class="ex">Exitcode</span> 0:0</span>
-<span id="cb7-16"><a href=""></a><span class="ex">+--------------------------------------------------------------------------+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">+--------------------------------------------------------------------------+</span></span>
+<span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Job</span> on the Baskerville cluster:</span>
+<span id="cb8-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Starting</span> at Fri Mar 21 15:00:30 2025 for user<span class="er">(</span><span class="ex">123456</span><span class="kw">)</span></span>
+<span id="cb8-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Identity</span> jobid 12345 jobname job.sh</span>
+<span id="cb8-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Running</span> against project ace-project and in partition baskerville-shared</span>
+<span id="cb8-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Requested</span> cpu=4,mem=12G,node=1,billing=4,gres/gpu=1 <span class="at">-</span> 00:10:00 walltime </span>
+<span id="cb8-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Allocated</span> cpu=4,mem=12G,node=1,billing=4,gres/gpu=1</span>
+<span id="cb8-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Assigned</span> to nodes bask-pg0308u37a</span>
+<span id="cb8-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Command</span> /bask/projects/r/ranaaaa-hackathon/job.sh  </span>
+<span id="cb8-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">WorkDir</span> /bask/projects/r/ranaaaa-hackathon    </span>
+<span id="cb8-11"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">+--------------------------------------------------------------------------+</span></span>
+<span id="cb8-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">+--------------------------------------------------------------------------+</span></span>
+<span id="cb8-13"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Finished</span> at Fri Mar 21 15:00:35 2025 for user<span class="er">(</span><span class="ex">123456</span><span class="kw">)</span> <span class="ex">on</span> the Baskerville Cluster</span>
+<span id="cb8-14"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Required</span> <span class="er">(</span><span class="ex">00:01.942</span> cputime, 3580K memory used<span class="kw">)</span> <span class="ex">-</span> 00:00:05 walltime</span>
+<span id="cb8-15"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">JobState</span> COMPLETING <span class="at">-</span> Reason None</span>
+<span id="cb8-16"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Exitcode</span> 0:0</span>
+<span id="cb8-17"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">+--------------------------------------------------------------------------+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="baskerville-sofware" class="slide level2 smaller">
-<h2>Baskerville Sofware</h2>
+<section id="baskerville-conda-environment" class="slide level2 smaller">
+<h2>Baskerville Conda Environment</h2>
 <ul>
-<li>You can view all the software we have installed on Baskerville thorugh our apps website <a href="https://apps.baskerville.ac.uk/" class="uri">https://apps.baskerville.ac.uk/</a>
+<li>In the project location <code>/bask/projects/r/ranaaaa-hackathon</code> there are the following:
 <ul>
-<li>This contains a module description</li>
-<li>How to load these modules</li>
-<li>Links to the module homepage</li>
+<li>Conda environment <code>conda_env</code> - this contains all the software you will need for this hackathon</li>
+<li><code>create_conda_env.sh</code> - This file has 2 purposes, create <code>conda_env</code> point all users to the already existing conda environment</li>
+<li><code>job.sh</code> An example job script that can be copied and editted by all</li>
+<li><code>activate_env</code> - loads modues and activates conda environment</li>
+<li><code>interactive.sh</code> - starts an interactive job placing users directly onto a compute node</li>
 </ul></li>
-<li>You can find specific modeules using <code>module spider</code></li>
-<li>You can find modules that contain your application using <code>module avail</code></li>
+</ul>
+</section>
+<section id="baskerville-interactive-jobs" class="slide level2 smaller">
+<h2>Baskerville interactive jobs</h2>
+<ul>
+<li>An interactive job follows the same general format as a batch job script - <a href="https://docs.baskerville.ac.uk/interactive-jobs/" class="uri">https://docs.baskerville.ac.uk/interactive-jobs/</a></li>
+<li>It contains <code>srun</code> instead of <code>sbatch</code> and does not need <code>#SBATCH</code> in front of each option</li>
+<li>You will be on a compute node first thing to do is <code>source activate_env</code> to have acccess to all the software required for this hackathon</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--export</span><span class="op">=</span>USER,HOME,PATH,TERM,DISPLAY <span class="at">--account</span><span class="op">=</span>ranaaaa-hackathon <span class="at">--qos</span><span class="op">=</span>bham <span class="at">--nodes</span><span class="op">=</span>1 <span class="at">--ntasks</span><span class="op">=</span>4 <span class="at">--time</span><span class="op">=</span>0-01:0:0 <span class="at">--reservation</span><span class="op">=</span>ranaaaa-hackathon <span class="at">--pty</span> /bin/bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="baskerville-portal" class="slide level2 smaller">
+<h2>Baskerville Portal</h2>
+<ul>
+<li>Baskerville Portal provides web-based access to a range of Baskerville services and some GUI applications <a href="https://docs.baskerville.ac.uk/portal/portal/" class="uri">https://docs.baskerville.ac.uk/portal/portal/</a>, such as JupyterLab:
+<ul>
+<li>JupyterLab will submit jobs on the reservation for <code>ranaaaa-hackathon</code></li>
+<li>You can access the conda environment in Jupter <a href="https://docs.baskerville.ac.uk/portal/jupyter-conda/" class="uri">https://docs.baskerville.ac.uk/portal/jupyter-conda/</a> by ticking “Show Conda Environments”</li>
+<li>Make sure you have run <code>create_conda_env.sh</code> which adds the environment to your <code>~/.conda/environments.txt</code></li>
+</ul></li>
+</ul>
+<div class="callout callout-warning callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Warning:</p>
+<pre><code>Each JupyterLab session will use a quarter of a node (1 GPU and 36 threads) so be considerate of others</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="baskerville-tips" class="slide level2">
+<h2>Baskerville Tips</h2>
+<ul>
+<li>All information about Baskerville and running jobs can be found on our docs website <a href="https://docs.baskerville.ac.uk/" class="uri">https://docs.baskerville.ac.uk/</a></li>
+<li>We have a cheatsheet of general Baskerville commands - <a href="https://docs.baskerville.ac.uk/cheatsheet/" class="uri">https://docs.baskerville.ac.uk/cheatsheet/</a></li>
+<li>We have some training material <a href="https://docs.baskerville.ac.uk/baskerville-basics/overview/" class="uri">https://docs.baskerville.ac.uk/baskerville-basics/overview/</a></li>
 </ul>
 </section></section>
 <section id="thank-you" class="title-slide slide level1 center">
